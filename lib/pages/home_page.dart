@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
             ),
 
             SizedBox(
-              height: 20,
+              height: 25,
             ),
             //search bar
             Container(
@@ -68,16 +68,61 @@ class _HomePageState extends State<HomePage> {
                 Icons.search,
                 color: Colors.white,
               ),
+              SizedBox(
+                width:5
+              ),
               Text(
-                'search',
+                'Search',
                 style: TextStyle(
                   color: Colors.white,
-                )
+                ),
               ),
             ],
             ),
-            )
-          ],),
+            ),
+
+            SizedBox(
+              height: 25,
+            ),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'How do you feel?',
+                  style: TextStyle(
+                    color:Colors.white,
+                    fontSize:18,
+                    fontWeight:FontWeight.bold,
+                    ),
+                ),
+                Icon(
+                  Icons.more_horiz,
+                  color:Colors.white
+                ),
+              ],
+            ),
+
+            SizedBox(
+              height: 25,
+            ),
+             
+             //four different faces
+             Row(
+              children: [
+                //bad
+
+                //fine
+                
+                //well
+
+                //excellent
+                ],
+             )
+
+           
+          ],
+          ),
         ),
       )
     );
