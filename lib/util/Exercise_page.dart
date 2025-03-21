@@ -1,25 +1,30 @@
 import 'package:flutter/material.dart';
 
-class Exercise extends StatelessWidget {
+class ExercisePage extends StatefulWidget {
   final IconData icon;
   final String exerciseName;
   final int numberOfExercises;
   final Color color;
 
-  const Exercise({
-    super.key,
+  const ExercisePage({
+    Key? key,
     required this.icon,
     required this.exerciseName,
     required this.numberOfExercises,
     required this.color,
-  });
+  }) : super(key: key);
 
+  @override
+  State<ExercisePage> createState() => _ExerciseState();
+}
+
+class _ExerciseState extends State<ExercisePage> {
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12.0),
       child: Container(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(16),
@@ -32,32 +37,32 @@ class Exercise extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(12),
                   child: Container(
-                    padding: const EdgeInsets.all(16),
-                    color: color, // Ensure a valid color is passed
+                    padding: EdgeInsets.all(16),
+                    color: widget.color, // Fix: Use the provided color
                     child: Icon(
-                      icon, // Ensure a valid icon is passed
+                      widget.icon, // Fix: Access using `widget.`
                       color: Colors.white,
                     ),
                   ),
                 ),
-                const SizedBox(width: 12),
+                SizedBox(width: 12),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     // Title
                     Text(
-                      exerciseName,
+                      widget.exerciseName,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
-                        color: color,
+                        color: widget.color, // Fix: Use the provided color
                       ),
                     ),
-                    const SizedBox(height: 5),
+                    SizedBox(height: 5),
                     // Subtitle
                     Text(
-                      "$numberOfExercises Exercises",
-                      style: const TextStyle(
+                      "${widget.numberOfExercises} Exercises", // Fix: Correct string interpolation
+                      style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.grey,
                         fontSize: 14,
@@ -67,7 +72,7 @@ class Exercise extends StatelessWidget {
                 ),
               ],
             ),
-            const Icon(Icons.more_horiz),
+            Icon(Icons.more_horiz),
           ],
         ),
       ),

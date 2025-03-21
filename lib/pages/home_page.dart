@@ -1,4 +1,4 @@
- import 'package:first_clone/util/Exercise_.dart';
+ import 'package:first_clone/util/Exercise_page.dart';
 import 'package:first_clone/util/emote_face.dart';
 import 'package:flutter/material.dart';
 
@@ -185,19 +185,19 @@ class _HomePageState extends State<HomePage> {
                   // listview of exercises
                   Expanded(
                     child: ListView(children: [
-                      Exercise(
+                      ExercisePage(
                         icon: Icons.favorite,
                         exerciseName: 'speaking skills',
                         numberOfExercises: 16,
                         color:Colors.orange
                       ),
-                       Exercise(
+                       ExercisePage(
                          icon: Icons.person,
                         exerciseName: 'Reading skills',
                         numberOfExercises: 16,
                         color: Colors.green,
                        ),
-                       Exercise(
+                       ExercisePage(
                          icon: Icons.star,
                         exerciseName: 'writng skills',
                         numberOfExercises: 16,
