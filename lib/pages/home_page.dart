@@ -1,4 +1,5 @@
- import 'package:first_clone/util/emote_face.dart';
+ import 'package:first_clone/util/Exercise_.dart';
+import 'package:first_clone/util/emote_face.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,8 +16,8 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.blue[800],
       bottomNavigationBar: BottomNavigationBar(items: [
         BottomNavigationBarItem(icon: Icon(Icons.home),label: '' ),
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: '' ),
-        BottomNavigationBarItem(icon: Icon(Icons.home),label: '' ),
+        BottomNavigationBarItem(icon: Icon(Icons.message), label: '' ),
+        BottomNavigationBarItem(icon: Icon(Icons.person),label: '' ),
         ]),
       body: SafeArea(
         child: Column(
@@ -182,57 +183,30 @@ class _HomePageState extends State<HomePage> {
                   ),
 
                   // listview of exercises
-                  Container(
-                    padding: EdgeInsets.all(16),
-                    decoration: BoxDecoration(color: Colors.white,
-                    borderRadius: BorderRadius.circular(16),
-                    ),
-
-                    child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                      Row(children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(12),
-                          child: Container(
-                            padding: EdgeInsets.all(16),
-                            color: Colors.orange,
-                            child: Icon(Icons.favorite,
-                            color: Colors.white)),
-                        ),
-                      SizedBox(
-                        width: 12,
+                  Expanded(
+                    child: ListView(children: [
+                      Exercise(
+                        icon: Icons.favorite,
+                        exerciseName: 'speaking skills',
+                        numberOfExercises: 16,
+                        color:Colors.orange
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start, 
-                        children: [
-                        // title
-                        Text('speaking skills',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        ),
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                      
-                        // subtitle
-                        Text("16 Exercises",
-                         style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey,
-                          fontSize: 14,
-                        ),
-                        ),
-
-                      ],
-                      ),
-                      ],),
-                      Icon(Icons.more_horiz),
-
-                    ],)
+                       Exercise(
+                         icon: Icons.person,
+                        exerciseName: 'Reading skills',
+                        numberOfExercises: 16,
+                        color: Colors.green,
+                       ),
+                       Exercise(
+                         icon: Icons.star,
+                        exerciseName: 'writng skills',
+                        numberOfExercises: 16,
+                        color: Colors.pink
+                       ),
+                       
+                    ],),
                   )
+                 
                  ],),
                ),
               ),
