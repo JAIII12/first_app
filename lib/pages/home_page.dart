@@ -13,13 +13,20 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blue[800],
+      bottomNavigationBar: BottomNavigationBar(items: [
+        BottomNavigationBarItem(icon: Icon(Icons.home),label: '' ),
+        BottomNavigationBarItem(icon: Icon(Icons.home), label: '' ),
+        BottomNavigationBarItem(icon: Icon(Icons.home),label: '' ),
+        ]),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(25.0),
-          child: Column(
-            children: [
-              // Greetings row
-              Row(
+        child: Column(
+          children: [
+            // Greetings row
+             Padding(
+               padding: const EdgeInsets.symmetric(horizontal:25.0),
+               child: Column(
+                           children: [
+                 Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
@@ -53,12 +60,12 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ],
-              ),
-
-              SizedBox(height: 25),
-
-              // Search bar
-              Container(
+                           ),
+                       
+                           SizedBox(height: 25),
+                       
+                           // Search bar
+                           Container(
                 decoration: BoxDecoration(
                   color: Colors.blue[600],
                   borderRadius: BorderRadius.circular(12),
@@ -74,12 +81,12 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ],
                 ),
-              ),
-
-              SizedBox(height: 25),
-
-              // "How do you feel?" section
-              Row(
+                           ),
+                       
+                           SizedBox(height: 25),
+                       
+                           // "How do you feel?" section
+                           Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
@@ -92,16 +99,16 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Icon(Icons.more_horiz, color: Colors.white),
                 ],
-              ),
-
-              SizedBox(height: 25),
-
-              // Four different faces
-              Row(
+                           ),
+                       
+                           SizedBox(height: 25),
+                       
+                           // Four different faces
+                           Row(
                 children: [
                   Column(
                     children: [
-                      Emote(emote: '😞'), // Now correctly using the Emote widget
+                      Emote(emote: '😞'), 
                       SizedBox(height: 8),
                       Text(
                         'Bad',
@@ -109,7 +116,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ],
                   ),
-                  SizedBox(width: 20), // Adjust spacing between emotes
+                  SizedBox(width: 20), 
                   Column(
                     children: [
                       Emote(emote: '🙂'),
@@ -143,9 +150,94 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 ],
+                           ),
+                           ],
+                          ),
+             ),
+             SizedBox(
+              height: 25,
+             ),
+            Expanded(
+              child: Container(
+                padding: EdgeInsets.all(25),
+                color:Colors.grey[200],
+                height: 500,
+               child: Center(
+                 child: Column(children: [
+                  //exercise heading
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('Exercises',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
+                      ),
+                      Icon(Icons.more_horiz),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+
+                  // listview of exercises
+                  Container(
+                    padding: EdgeInsets.all(16),
+                    decoration: BoxDecoration(color: Colors.white,
+                    borderRadius: BorderRadius.circular(16),
+                    ),
+
+                    child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                      Row(children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(12),
+                          child: Container(
+                            padding: EdgeInsets.all(16),
+                            color: Colors.orange,
+                            child: Icon(Icons.favorite,
+                            color: Colors.white)),
+                        ),
+                      SizedBox(
+                        width: 12,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start, 
+                        children: [
+                        // title
+                        Text('speaking skills',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                      
+                        // subtitle
+                        Text("16 Exercises",
+                         style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey,
+                          fontSize: 14,
+                        ),
+                        ),
+
+                      ],
+                      ),
+                      ],),
+                      Icon(Icons.more_horiz),
+
+                    ],)
+                  )
+                 ],),
+               ),
               ),
-            ],
-          ),
+            )
+          ],
         ),
       ),
     );
